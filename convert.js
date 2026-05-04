@@ -1,4 +1,3 @@
-// all rates relative to USD
 const rates = {
   USD: 1,
   AUD: 1.53,
@@ -6,20 +5,32 @@ const rates = {
   VND: 25400,
 };
 
-function convert() {
-  const amount = parseFloat(document.getElementById("amount").value);
+function convertFrom() {
+  const amount = parseFloat(document.getElementById("amountFrom").value);
   const from = document.getElementById("fromCurrency").value;
   const to = document.getElementById("toCurrency").value;
 
-  if (isNaN(amount) || amount < 0) {
-    document.getElementById("result").textContent = "Please enter a valid amount.";
+  if (isNaN(amount)) {
+    document.getElementById("amountTo").value = "";
     return;
   }
 
-  // Convert to USD first, then to target currency
   const inUSD = amount / rates[from];
   const converted = inUSD * rates[to];
+  document.getElementById("amountTo").value = parseFloat(converted.toFixed(6));
+}
 
-  document.getElementById("result").textContent =
-    amount + " " + from + " = " + converted.toFixed(2) + " " + to;
+function convertTo() {
+  const amount = parseFloat(document.getElementById("amountTo").value);
+  const from = document.getElementById("fromCurrency").value;
+  const to = document.getElementById("toCurrency").value;
+
+  if (isNaN(amount)) {
+    document.getElementById("amountFrom").value = "";
+    return;
+  }
+
+  const inUSD = amount / rates[to];
+  const converted = inUSD * rates[from];
+  document.getElementById("amountFrom").value = parseFloat(converted.toFixed(6));
 }
