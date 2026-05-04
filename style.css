@@ -6,57 +6,82 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
+  background: linear-gradient(135deg, #a8c8f8 0%, #c3b1e1 50%, #f9c6d0 100%);
   display: flex;
   justify-content: center;
-  padding: 60px 20px;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
   background: white;
-  border-radius: 10px;
-  padding: 32px;
+  border-radius: 16px;
+  padding: 36px;
   width: 100%;
-  max-width: 420px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  max-width: 440px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 h1 {
   font-size: 22px;
-  margin-bottom: 24px;
   color: #1a1a1a;
-}
-
-.box + .box {
-  margin-top: 16px;
+  margin-bottom: 28px;
 }
 
 .box {
   display: flex;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1.5px solid #dde3ec;
+  border-radius: 10px;
   overflow: hidden;
+  background: #fafbfc;
+  transition: border-color 0.2s;
 }
 
-.box input {
-  flex: 1;
-  padding: 14px;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  width: 50%;
-}
-
-.box select {
-  padding: 14px 10px;
-  font-size: 15px;
-  border: none;
-  border-left: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-  outline: none;
+.box + .box {
+  margin-top: 14px;
 }
 
 .box:focus-within {
   border-color: #4a90e2;
+  background: white;
+}
+
+.box input {
+  flex: 1;
+  padding: 16px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1a1a1a;
+  width: 50%;
+}
+
+.box input::placeholder {
+  color: #bbb;
+}
+
+.divider {
+  width: 1.5px;
+  background-color: #dde3ec;
+  margin: 10px 0;
+}
+
+.box select {
+  padding: 16px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  color: #333;
+  min-width: 110px;
+}
+
+.rate-hint {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #999;
+  text-align: center;
 }
